@@ -172,7 +172,7 @@ contract DOMINORUM is ERC1155, Ownable, ERC1155Supply {
   }
 
   function createRandomGameToken(string memory _name) public {
-    requre(!getPlayer(msg.sender)inBattle, "Player is in a battle");
+    requre(!getPlayer(msg.sender).inBattle, "Player is in a battle");
     reqire(isPlayer(msg.sender), "Please Register Player First");
 
     _createGameToken(_name);
@@ -188,7 +188,7 @@ contract DOMINORUM is ERC1155, Ownable, ERC1155Supply {
 
     bytes32 battleHash = keccak256(abi.encode(_name));
 
-    Battle memeory _battle = Battle(
+    Battle memory _battle = Battle(
       BattleStatus.PENDING,
       battleHash,
       _name,
@@ -204,7 +204,7 @@ contract DOMINORUM is ERC1155, Ownable, ERC1155Supply {
     return _battle;
   }
 
-  function joinBattle(string memory _name) external Returns (Battle memory) {
+  function joinBattle(string memory _name) external returns (Battle memory) {
     Battle memory _battle = getBattle(_name);
 
     require(_battle.battleStatus == BattleStatus.PENDING, "Battle already started!");
@@ -223,7 +223,7 @@ contract DOMINORUM is ERC1155, Ownable, ERC1155Supply {
   }
 
   function getBattleMoves(string memory _battleName) publicview returns (uint256 P1Move, uint256 P2Move) {
-    Battle memory +battle = getBattle(_battleName);
+    Battle memory _battle = getBattle(_battleName);
 
     P1Move = _battle.moves[0];
     P2Move = _battle.moves[1];
@@ -286,22 +286,22 @@ contract DOMINORUM is ERC1155, Ownable, ERC1155Supply {
     uint index; uint move; uint health; uint attack; uint defene;
   }
 
-  function _resolveBattle(battle memory _battle) internal {
+  function _resolveBattle(Battle memory _battle) internal {
     P memory p1 = P(
-      playerInfo[_battle.players[0]],
-      _battle.moves[0],
-      getPlayer(_battle.players[0]).playerHealth,
-      getPlayerToken(_battle.players[0].attackStrength,
-      getPlayerToken(_battle.players[0]).defenseStength 
-      );
+        playerInfo[_battle.players[0]],
+        _battle.moves[0],
+        getPlayer(_battle.players[0]).playerHealth,
+        getPlayerToken(_battle.players[0]).attackStrength,
+        getPlayerToken(_battle.players[0]).defenseStrength
+    );
 
-      P memory p2 = p(
+    P memory p2 = P(
         playerInfo[_battle.players[1]],
         _battle.moves[1],
         getPlayer(_battle.players[1]).playerHealth,
         getPlayerToken(_battle.players[1]).attackStrength,
         getPlayerToken(_battle.players[1]).defenseStrength
-      );
+    );
 
       address[2] memory _damagePlayers = [address(0), address(0)];
 
@@ -381,7 +381,7 @@ contract DOMINORUM is ERC1155, Ownable, ERC1155Supply {
         }
       } else if (p1.move == 2 && p2.move == 2) {
         players[p1.index].playerMana += 3;
-        players[p2,index].playerMana += 3;
+        players[p2.index].playerMana += 3;
       }
 
       emit RoundEnded(
