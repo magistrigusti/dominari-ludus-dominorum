@@ -71,11 +71,11 @@ const OnboardModal = () => {
         return (
           <>
             <p className={styles.modalText}>
-              Oops, you don't have AVAX tokens in your account
+              Oops, you don't have ALLOD tokens in your account
             </p>
             <CustomButton
               title="Grab some test tokens"
-              handleClick={() => window.open('https://faucet.avax.network/', '_blank')}
+              handleClick={() => window.open(' http://allodium.netlify.app/ ', '_blank')}
             />
           </>
         );
