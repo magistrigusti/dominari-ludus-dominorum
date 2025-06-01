@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <circle cx="32" cy="32" r="32" fill="#0A0F1C"></circle>
+  <circle cx="32" cy="32" r="22" stroke="#00CFFF" stroke-width="2" fill="none"></circle>
+  <circle cx="32" cy="32" r="26" stroke="#FFD700" stroke-width="1" fill="none" stroke-dasharray="4 4"></circle>
+  <text x="32" y="38" font-size="24" font-family="serif" text-anchor="middle" fill="#00CFFF">A</text>
+
+  <!-- Кристаллы вокруг круга -->
+  <g fill="#00E0FF">
+    <polygon points="32,3 34,10 30,10"></polygon>
+    <polygon points="32,61 34,54 30,54"></polygon>
+    <polygon points="3,32 10,34 10,30"></polygon>
+    <polygon points="61,32 54,34 54,30"></polygon>
+    <polygon points="15,15 20,18 18,20"></polygon>
+    <polygon points="49,49 44,46 46,44"></polygon>
+    <polygon points="15,49 20,46 18,44"></polygon>
+    <polygon points="49,15 44,18 46,20"></polygon>
+  </g>
+</svg>
