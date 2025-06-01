@@ -12,11 +12,11 @@ async function deploy(name: string, ...params: [string]) {
 async function main() {
   const [admin] = await ethers.getSigners();
   
-  console.log(`Deploying a smart contract DOMINORUM`);
+  console.log(`Deploying a smart contract DOMINARIUM`);
 
-  const DOMINORUM = (await deploy('DOMINORUM', _metadataUri)).connect(admin);
+  const DOMINARIUM = (await deploy('DOMINARIUM', _metadataUri)).connect(admin);
 
-  console.log({ DOMINORUM: DOMINORUM.address });
+  console.log({ DOMINARIUM: DOMINARIUM.address });
 }
 
 main()
