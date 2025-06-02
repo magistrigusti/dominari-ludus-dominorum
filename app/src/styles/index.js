@@ -1,3 +1,4 @@
+//src/styles/index.js
 const styles = {
   // general
   headText: 'font-rajdhani font-bold text-white sm:text-6xl text-4xl',
