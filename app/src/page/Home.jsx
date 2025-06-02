@@ -4,7 +4,26 @@ import { PageHOC, CustomInput, CustomButton } from '../components'
 
 const Home = () => {
   const [playerName, setPlayerName] = useState();
-  const { contract, walletAddress } = useGlobalContext();
+  const { contract, walletAddress, setShowAlert } = useGlobalContext();
+
+  const handleClick = async () => {
+    try {
+      console.log( contract );
+      const playerExists = await contract.isPalyer(walletAddress);
+
+      if (!playerExists) {
+        await contract.registrPlayer(playerName, playerName);
+
+        setShowAlert({
+          status: 'true',
+          type: 'info',
+          message: `${playerName} is being summoned!`
+        })
+      }
+    } catch (error) {
+      alert(error);
+    }
+  } 
 
   return (
     <div className="flex flex-col" >
@@ -13,6 +32,12 @@ const Home = () => {
         label="Name"
         value={playerName}
         handleValueChange={setPlayerName}
+      />
+
+      <CustomButton 
+        title="Reister"
+        handleClick={handleClick}
+        restStyles="mt-6"
       />
     </div>
   )

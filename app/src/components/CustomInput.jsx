@@ -1,6 +1,5 @@
 
 import styles from '../styles';
-import CustomButton from './CustomButton';
 
 const regex = /^[A-Za-z0-9]+$/;
 
@@ -24,12 +23,6 @@ const CustomInput = ({
             handleValueChange(e.target.value)
           }
         }}
-      />
-
-      <CustomButton 
-        restType="mt-6"
-        title="Registr"
-        handleClick={() => {}}
       />
     </>
   );
