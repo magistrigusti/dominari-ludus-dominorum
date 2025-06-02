@@ -3,7 +3,7 @@ import saiman from './background/saiman.jpg';
 import astral from './background/astral.jpg';
 import eoaalien from './background/eoaalien.jpg';
 import panight from './background/panight.jpg';
-import heroImg from './background/hero-img.jpg';
+import heroImg from './background/hero-bg.png';
 
 // cards
 import ace from './card/Ace.png';
