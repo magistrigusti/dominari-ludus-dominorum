@@ -54,8 +54,26 @@ export const GlobalContextProvider = ({ children }) => {
     }
   }, [showAlert]);
 
+  useEffect(() => {
+    if (errorMessage) {
+      const parsedErrorMessage= errorMessage?.reason?.slice(
+        'execution reverted: '.length 
+      ).slice(0, -1);
+
+      if (parsedErrorMessage) {
+        setShowAlert({
+          status: true,
+          type: 'failure',
+          message: parsedErrorMessage,
+        });
+      }
+    }
+  }, [errorMessage]);
+
   return (
-    <GlobalContext.Provider value={{contract, walletAddress, showAlert, setShowAlert}} >
+    <GlobalContext.Provider value={{
+      contract, walletAddress, showAlert, setShowAlert, errorMessage, setErrorMessage
+    }} >
       { children }
     </GlobalContext.Provider>
   )
