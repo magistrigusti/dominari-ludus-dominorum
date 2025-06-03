@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import { ABI } from '../contract';
+// import { ABI } from '../contract';
 
 const AddNewEvent = (eventFilter, provider, cd) => {
   provider.removelistener(eventFilter);

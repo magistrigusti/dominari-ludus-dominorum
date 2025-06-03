@@ -4,7 +4,7 @@ import Web3Modal from 'web3modal';
 import { useNavigate } from 'react-router-dom';
 
 import { GetParams } from '../utils/onboard.js';
-import { ABI, ADDRESS } from '../contract';
+// import { ABI, ADDRESS } from '../contract';
 import { createEventListeners } from './createEventListeners';
 
 const GlobalContext = createContext();
